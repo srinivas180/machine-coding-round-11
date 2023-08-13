@@ -1,0 +1,116 @@
+/* Global Styles
+----------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+    --primary: #00875a;
+    --secondary: #c9ffed;
+    --medium-green: #80f8d0;
+    --gray: #bbbbbb;
+    --blue-gray: #1e2f4f;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button--padding {
+    padding: 10px 24px;
+}
+
+.button--semi-bold {
+    font-weight: 600;
+}
+
+.button--primary {
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+.button--secondary {
+    border: 1px solid var(--primary);
+    background-color: white;
+    color: var(--primary);
+}
+
+.button--danger {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.button--text-only {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.button--primary:hover,
+.button--secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.button--secondary:disabled {
+    border: 1px solid var(--medium-green);
+    background-color: white;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.button--secondary:disabled:hover {
+    border: 1px solid var(--medium-green);
+    cursor: default;
+}
+
+.button--text {
+    background-color: white;
+    color: var(--primary);
+}
+
+.link--black {
+    color: black;
+}
+
+.link--decor-none {
+    text-decoration: none;
+}
+
+.link--primary {
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 10px 24px;
+    border-radius: 14px;
+}
+
+.link--primary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
