@@ -8,8 +8,10 @@ export function Home() {
     const [genres, setGenres] = useState([]);
     const [releaseYears, setReleaseYears] = useState([]);
     const { searchQuery } = useContext(SearchContext);
-    const { movies } = useContext(MoviesContext);
+    const { movies, addMovie } = useContext(MoviesContext);
+    const [showAddMovieModal, setShowAddMovieModal] = useState(true);
     const [movie, setMovie] = useState({
+        id: 11,
         title: "",
         summary: "",
         year: "",
@@ -126,8 +128,106 @@ export function Home() {
                           <Movie key={movie.id} movie={movie} />
                       ))}
             </div>
-            <div className="modal">
-                <div className="modal__content"></div>
+            <div
+                className="modal"
+                style={{ display: showAddMovieModal ? "block" : "none" }}
+            >
+                <div className="modal__content">
+                    <label>
+                        title
+                        <input
+                            value={movie.title}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, title: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        year
+                        <input
+                            value={movie.year}
+                            type="number"
+                            onChange={(e) =>
+                                setMovie({ ...movie, year: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        genre
+                        <input
+                            value={movie.genre}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, genre: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        rating
+                        <input
+                            value={movie.rating}
+                            type="number"
+                            onChange={(e) =>
+                                setMovie({ ...movie, rating: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        director
+                        <input
+                            value={movie.director}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, director: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        writer
+                        <input
+                            value={movie.writer}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, writer: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        cast
+                        <input
+                            value={movie.cast}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, cast: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        summary
+                        <input
+                            value={movie.summary}
+                            type="text"
+                            onChange={(e) =>
+                                setMovie({ ...movie, summary: e.target.value })
+                            }
+                        />
+                    </label>
+                    <label>
+                        image url
+                        <input
+                            value={movie.imageURL}
+                            type="url"
+                            onChange={(e) =>
+                                setMovie({ ...movie, imageURL: e.target.value })
+                            }
+                        />
+                    </label>
+                    <button onClick={() => addMovie(movie)}>Save</button>
+                    <button onClick={() => setShowAddMovieModal(false)}>
+                        Cancel
+                    </button>
+                </div>
             </div>
         </div>
     );
