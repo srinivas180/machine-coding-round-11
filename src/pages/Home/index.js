@@ -9,7 +9,7 @@ export function Home() {
     const [releaseYears, setReleaseYears] = useState([]);
     const { searchQuery } = useContext(SearchContext);
     const { movies, addMovie } = useContext(MoviesContext);
-    const [showAddMovieModal, setShowAddMovieModal] = useState(true);
+    const [showAddMovieModal, setShowAddMovieModal] = useState(false);
     const [movie, setMovie] = useState({
         id: 11,
         title: "",
@@ -119,7 +119,12 @@ export function Home() {
                     <option value="9">9 and above</option>
                     <option value="10">10</option>
                 </select>
-                <button className="button button--primary">Add movie</button>
+                <button
+                    className="button button--primary"
+                    onClick={() => setShowAddMovieModal(true)}
+                >
+                    Add movie
+                </button>
             </div>
             <div className="movies">
                 {filteredMovies.length === 0
@@ -223,7 +228,14 @@ export function Home() {
                             }
                         />
                     </label>
-                    <button onClick={() => addMovie(movie)}>Save</button>
+                    <button
+                        onClick={() => {
+                            addMovie(movie);
+                            setShowAddMovieModal(false);
+                        }}
+                    >
+                        Save
+                    </button>
                     <button onClick={() => setShowAddMovieModal(false)}>
                         Cancel
                     </button>
