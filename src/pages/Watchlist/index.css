@@ -1,9 +1,5 @@
-.movies {
+.wishlist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-}
-
-.movie__image {
-    width: 100%;
 }
